@@ -5,3 +5,4 @@
 .DS_Store
 .quarto
 inst/checagem_manual_emails/client_secret_185465654466-9mamud255u5sadjn4cveffp6cnvmlm3r.apps.googleusercontent.com.json
+inst/dados_aplicacao.rds

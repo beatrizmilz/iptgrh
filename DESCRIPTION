@@ -1,5 +1,5 @@
 Package: iptgrh
-Title: What the Package Does (One Line, Title Case)
+Title: Funções para calcular o  Índice Paulista de Transparência em Gestão de Recursos Hídricos (IPT-GRH)
 Version: 0.0.0.9000
 Authors@R: 
     person("Beatriz", "Milz", , "milz.bea@gmail.com", role = c("aut", "cre"),

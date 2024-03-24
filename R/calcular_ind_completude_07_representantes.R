@@ -5,7 +5,7 @@ calcular_ind_completude_07_representantes <- function(dados) {
   dados |>
     dplyr::mutate(
       email_valido_comparacao = !stringr::str_detect(email, paste0(tese::emails_invalidos, collapse = "|")),
-      email_valido_regex = tese::teste_email_valido(email),
+      email_valido_regex = testar_validade_email(email),
       email_valido = (email_valido_comparacao + email_valido_regex) == 2
     ) |>
     dplyr::count(n_ugrhi, email_valido) |>

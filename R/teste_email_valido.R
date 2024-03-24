@@ -6,8 +6,8 @@
 #' @export
 #'
 #' @examples
-#' teste_email_valido("milz.bea@gmail.com")
-teste_email_valido <- function(email) {
+#' testar_validade_email("milz.bea@gmail.com")
+testar_validade_email <- function(email) {
   grepl(
     "\\<[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\>",
     as.character(email),

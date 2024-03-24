@@ -38,7 +38,7 @@ calcular_ind_completude_01_02_03 <- function(ano_calcular,
     dplyr::left_join(emails_cbh_validacao_manual, by = c("email_limpo" = "email"),
                      relationship = "many-to-many") |>
     dplyr::mutate(
-      email_check = teste_email_valido(email_limpo),
+      email_check = testar_validade_email(email_limpo),
       email_detect = dplyr::case_when(
         !is.na(novo_email) ~ 0.5,
         status_resposta == "respondido" ~ 1,

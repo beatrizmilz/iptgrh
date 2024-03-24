@@ -6,7 +6,7 @@ calcular_ind_completude_01_02_03 <- function(ano_calcular,
     dplyr::select(sigla_comite, n_ugrhi)
 
   infos_comite_completo <-
-    ler_arquivos_piggyback("infos_comite_completo") |>
+    baixar_arquivo_releases("infos_comite_completo.rds") |>
     dplyr::left_join(numero_sigla, relationship = "many-to-many")
 
   dados_filtrados <- infos_comite_completo |>

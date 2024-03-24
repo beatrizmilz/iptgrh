@@ -1,6 +1,6 @@
 calcular_ind_completude_04 <- function(ano_calcular,
                                        mes_calcular) {
-  base_html_validacao <- ler_arquivos_piggyback("base_html_validacao")
+  base_html_validacao <- baixar_arquivo_releases("base_html_validacao.rds")
 
 
   numero_sigla <- ComitesBaciaSP::comites_sp |>

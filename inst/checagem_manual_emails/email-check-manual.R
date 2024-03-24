@@ -4,7 +4,7 @@ numero_sigla <- ComitesBaciaSP::comites_sp |>
   dplyr::select(sigla_comite, n_ugrhi, bacia_hidrografica)
 
 todos_emails_comites <-
-  ler_arquivos_piggyback("infos_comite_completo") |>
+  baixar_arquivo_releases("infos_comite_completo.rds") |>
   dplyr::left_join(numero_sigla, relationship = "many-to-many") |>
   dplyr::mutate(email_limpo = email |>
                   stringr::str_remove("contato: ") |>

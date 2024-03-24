@@ -1,34 +1,34 @@
 devtools::load_all()
 
 
-base_html_validacao <- ler_arquivos_piggyback("base_html_validacao")
+base_html_validacao <- baixar_arquivo_releases("base_html_validacao.rds")
 
 
 # importar dados ----
-atas_completo <- ler_arquivos_piggyback("atas_completo") |>
+atas_completo <- baixar_arquivo_releases("atas_completo.rds") |>
   tidyr::nest(atas = -c(data_coleta_dados, orgao, comite, n_ugrhi))
 
 
-atas_agencia_completo <- ler_arquivos_piggyback("atas_agencia_completo") |>
+atas_agencia_completo <- baixar_arquivo_releases("atas_agencia_completo.rds") |>
   tidyr::nest(atas_agencia = -c(data_coleta_dados, orgao, comite, n_ugrhi))
 
 
-documentos_completo <- ler_arquivos_piggyback("documentos_completo") |>
+documentos_completo <- baixar_arquivo_releases("documentos_completo.rds") |>
   dplyr::mutate(data_postagem = readr::parse_date(data_postagem, "%d/%m/%Y")) |>
   tidyr::nest(documentos = -c(data_coleta_dados, orgao, comite, n_ugrhi))
 
-agenda_completo <- ler_arquivos_piggyback("agenda_completo") |>
+agenda_completo <- baixar_arquivo_releases("agenda_completo.rds") |>
   tidyr::nest(agenda = -c(data_coleta_dados, orgao, comite, n_ugrhi))
 
-representantes_completo <- ler_arquivos_piggyback("representantes_completo") |>
+representantes_completo <- baixar_arquivo_releases("representantes_completo.rds") |>
   tidyr::nest(representantes = -c(data_coleta_dados, orgao, comite, n_ugrhi))
 
 
-deliberacoes_completo <- ler_arquivos_piggyback("deliberacoes_completo") |>
+deliberacoes_completo <- baixar_arquivo_releases("deliberacoes_completo.rds") |>
   dplyr::mutate(data_postagem = readr::parse_date(data_postagem, "%d/%m/%Y")) |>
   tidyr::nest(deliberacoes = -c(data_coleta_dados, orgao, comite, n_ugrhi))
 
-agenda_detalhada_completo <- ler_arquivos_piggyback("agenda_detalhada_completo") |>
+agenda_detalhada_completo <- baixar_arquivo_releases("agenda_detalhada_completo.rds") |>
   dplyr::rename(data_coleta_dados = data_download) |>
   tidyr::nest(agenda_detalhada = -c(data_coleta_dados, id_arquivo))
 

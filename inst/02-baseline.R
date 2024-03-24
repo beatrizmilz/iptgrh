@@ -1,9 +1,9 @@
 devtools::load_all()
 library(ggplot2)
-agenda_completo <- ler_arquivos_piggyback("agenda_completo")
-atas_completo <- ler_arquivos_piggyback("atas_completo")
-deliberacoes_completo <- ler_arquivos_piggyback("deliberacoes_completo")
-documentos_completo <- ler_arquivos_piggyback("documentos_completo")
+agenda_completo <- baixar_arquivo_releases("agenda_completo.rds")
+atas_completo <- baixar_arquivo_releases("atas_completo.rds")
+deliberacoes_completo <- baixar_arquivo_releases("deliberacoes_completo.rds")
+documentos_completo <- baixar_arquivo_releases("documentos_completo.rds")
 
 data_param <- 180
 

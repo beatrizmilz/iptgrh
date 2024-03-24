@@ -13,7 +13,7 @@ preparar_dados_ind <- function(ano_calcular,
     readr::read_rds("inst/indice/dados_aplicacao.rds")
 
 
-  base_html_validacao <- ler_arquivos_piggyback("base_html_validacao")
+  base_html_validacao <- baixar_arquivo_releases("base_html_validacao.rds")
 
   numero_sigla <- ComitesBaciaSP::comites_sp |>
     dplyr::select(sigla_comite, n_ugrhi)

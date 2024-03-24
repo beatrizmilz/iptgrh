@@ -1,4 +1,4 @@
-#' Ler arquivos do Piggyback
+#' Ler arquivo armazenado em um Release no GitHub
 #'
 #'
 #' @param arquivo Nome do arquivo para fazer download
@@ -8,7 +8,7 @@
 #'
 #' @return Tibble
 #' @export
-ler_arquivo_piggyback <- function(arquivo,
+ler_arquivo_releases <- function(arquivo,
                                   caminho_download = "data-raw/dados_completos_sigrh/",
                                   repositorio = "beatrizmilz/iptgrh_scraper",
                                   tag_release = "dados") {

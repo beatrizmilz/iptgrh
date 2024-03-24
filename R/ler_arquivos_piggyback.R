@@ -1,10 +1,25 @@
-ler_arquivos_piggyback <- function(base,
-                                   caminho_download = "data-raw/dados_completos_sigrh/") {
+#' Ler arquivos do Piggyback
+#'
+#'
+#' @param arquivo Nome do arquivo para fazer download
+#' @param caminho_download Caminho onde será feito o download do arquivo
+#' @param repositorio Repositório do GitHub onde o release foi criado
+#' @param tag_release Nome da tag do release onde o arquivo está armazenado
+#'
+#' @return Tibble
+#' @export
+ler_arquivo_piggyback <- function(arquivo,
+                                  caminho_download = "data-raw/dados_completos_sigrh/",
+                                  repositorio = "beatrizmilz/iptgrh_scraper",
+                                  tag_release = "dados") {
+
+  # Criar a pasta para fazer download
+  fs::dir_create(caminho_download)
 
   # Cria o caminho do arquivo
-  arquivo_baixar <- glue::glue("{caminho_download}{base}.rds")
+  arquivo_baixar <- glue::glue("{caminho_download}{arquivo}")
 
-  # Verifica o tamanho do arquivo.
+  # Verifica o tamanho do arquivo (caso ele exista!)
   # Isso é útil caso o arquivo já tenha sido baixado
   tamanho_arquivo <- fs::file_size(arquivo_baixar)
 
@@ -13,9 +28,9 @@ ler_arquivos_piggyback <- function(base,
   # prosseguir e baixar o arquivo
   if (tamanho_arquivo == 0 | is.na(tamanho_arquivo)) {
     piggyback::pb_download(
-      repo = "beatrizmilz/iptgrh_scraper",
-      tag = "dados",
-      file = glue::glue("{base}.rds"),
+      repo = repositorio,
+      tag = tag_release,
+      file = arquivo,
       dest = caminho_download
     )
   }
